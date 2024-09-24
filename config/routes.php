@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 use App\Controller\CategoryController;
 use App\Controller\CustomerController;
+<<<<<<< HEAD
 use App\Controller\ProductController;
 use App\Controller\UserController;
+=======
+>>>>>>> da98fe3 (ajuste na rota)
 use App\Controller\OrderController;
+use App\Controller\ProductController;
 
 return [
     '/' => [CategoryController::class, 'list'],
