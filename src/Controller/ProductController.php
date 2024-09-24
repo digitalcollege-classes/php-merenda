@@ -25,6 +25,4 @@ class ProductController extends AbstractController implements ControllerInterfac
     {
         echo "excluir...";
     }
-
-
 }
