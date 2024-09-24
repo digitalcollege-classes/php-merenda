@@ -91,5 +91,11 @@ git checkout -b nome-da-branch
 - passo 5: Faz o que tem que fazer
 
 - passo 6: Commitar as mudancas feitas
-
-
+```bash
+git add .
+git commit -m "descricao das alteracoes"
+```
+- passo 7: Envia as mudancas pro git
+```bash
+git push origin nome-da-branch
+```
