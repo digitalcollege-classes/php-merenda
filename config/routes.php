@@ -6,6 +6,7 @@ use App\Controller\CategoryController;
 use App\Controller\CustomerController;
 use App\Controller\ProductController;
 use App\Controller\UserController;
+use App\Controller\OrderController;
 
 return [
     '/' => [CategoryController::class, 'list'],
@@ -20,6 +21,8 @@ return [
     '/clientes/editar' => [CustomerController::class, 'edit'],
     '/clientes/remover' => [CustomerController::class, 'remove'],
 
+    '/pedidos/listar' => [OrderController::class, 'list'],
+   
     '/produtos/listar' => [ProductController::class, 'list'],
     '/produtos/adicionar' => [ProductController::class, 'add'],
     '/produtos/editar' => [ProductController::class, 'edit'],
