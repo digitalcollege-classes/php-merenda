@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Controller\CategoryController;
 use App\Controller\CustomerController;
 use App\Controller\OrderController;
+use App\Controller\ProductController;
 
 return [
     '/' => [CategoryController::class, 'list'],
@@ -21,5 +22,10 @@ return [
 
     '/pedidos/listar' => [OrderController::class, 'list'],
    
+    '/produtos/listar' => [ProductController::class, 'list'],
+    '/produtos/adicionar' => [ProductController::class, 'add'],
+    '/produtos/editar' => [ProductController::class, 'edit'],
+    '/produtos/remover' => [ProductController::class, 'remove'],
 ];
+
 
