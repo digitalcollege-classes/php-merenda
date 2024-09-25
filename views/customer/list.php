@@ -30,8 +30,8 @@
                                     <td>Endereço Tal {$i}</td>
                                     <td>(85) 9 8761-1234 {$i}</td>
                                     <td>
-                                        <a class='btn btn-outline-danger btn-sm' href=''>Editar</a>
-                                        <a class='btn btn-outline-warning btn-sm' href=''>Excluir</a>
+                                        <a class='btn btn-outline-danger btn-sm' href='/clientes/excluir'>Excluir</a>
+                                        <a class='btn btn-outline-warning btn-sm' href='/clientes/editar'>Editar</a>
                                     </td>
                                 </tr>
                             ";
