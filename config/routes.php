@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Controller\CategoryController;
 use App\Controller\CustomerController;
 use App\Controller\ProductController;
+use App\Controller\UserController;
 
 return [
     '/' => [CategoryController::class, 'list'],
@@ -23,5 +24,7 @@ return [
     '/produtos/adicionar' => [ProductController::class, 'add'],
     '/produtos/editar' => [ProductController::class, 'edit'],
     '/produtos/remover' => [ProductController::class, 'remove'],
+    
+    '/usuarios/adicionar' => [UserController::class, 'add'],
 ];
 
