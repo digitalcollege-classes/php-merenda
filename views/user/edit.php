@@ -19,9 +19,16 @@
                 </div>
 
                 <div class="input-group input-group-outline mb-3">
-                    <label class="w-30" for="endereco">
-                        Endereço
-                        <input type="text" name="endereco" id="endereco" class="form-control">
+                    <label class="w-30" for="email">
+                        Email
+                        <input type="text" name="email" id="email" class="form-control">
+                    </label>
+                </div>
+
+                <div class="input-group input-group-outline mb-3">
+                    <label class="w-30" for="password">
+                        Senha
+                        <input type="password" name="password" id="password" class="form-control">
                     </label>
                 </div>
 
