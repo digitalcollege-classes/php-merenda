@@ -1,7 +1,10 @@
-<h1>Página não encontrada</h1>
+<!-- <h1>Página não encontrada</h1> -->
 
-<img src="/images/not-found.webp" alt="Nao encontrado">
+<div class="text-center">
+    <img src="/images/not-found.jpg" alt="Nao encontrado" width="1220" heigth="1105">
 
-<div>
-    <a href="/" class="btn btn-primary">Ir para a Pagina Inicial</a>
+</div>
+
+<div style="text-align:center">
+    <br><a href="/" class="btn btn-primary" text-align="center">Ir para a Pagina Inicial</a>
 </div>
