@@ -15,7 +15,8 @@
                     <tr>
                         <th>#ID</th>
                         <th>Nome</th>
-                        <th>Endereço</th>
+                        <th>Email</th>
+                        <th>Senha</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
@@ -26,7 +27,9 @@
                                 <tr>
                                     <td>{$i}</td>
                                     <td>Nome Usuário {$i}</td>
-                                    <td>Endereço Usuário {$i}</td>
+                                    <td>Email {$i}</td>
+                                    <td>Senha {$i}</td>
+                             
                                     <td>
                                         <a class='btn btn-outline-danger btn-sm' href='/usuarios/editar'>Editar</a>
                                         <a class='btn btn-outline-warning btn-sm' href=''>Excluir</a>
