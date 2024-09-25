@@ -30,7 +30,7 @@
                                     <td>Descricao {$i}</td>
                                     <td>Imagem {$i}</td>
                                     <td>
-                                        <a class='btn btn-outline-danger btn-sm' href=''>Editar</a>
+                                        <a class='btn btn-outline-danger btn-sm' href='/categorias/editar'>Editar</a>
                                         <a class='btn btn-outline-warning btn-sm' href=''>Excluir</a>
                                     </td>
                                 </tr>
