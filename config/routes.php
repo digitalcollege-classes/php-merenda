@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Controller\CategoryController;
 use App\Controller\CustomerController;
+use App\Controller\OrderController;
 use App\Controller\ProductController;
 use App\Controller\UserController;
 use App\Controller\OrderController;

@@ -31,9 +31,9 @@
                         <input type="password" name="password" id="password" class="form-control">
                     </label>
                 </div>
-
+              
                 <button class="btn btn-primary btn-lg w-30">Cadastrar</button>
-            </form>
+          </form>
         </div>
     </div>
 </section>
