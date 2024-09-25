@@ -1,5 +1,7 @@
 <?php 
-    include '../views/_components/menu.php';
+    if ($view !== 'auth/login') {
+        include '../views/_components/menu.php';
+    }
 ?>
 
 <main class="main-content border-radius-lg">
