@@ -30,7 +30,7 @@
                                     <td>Categoria Tal</td>
                                     <td>R$ {$i}</td>
                                     <td>
-                                        <a class='btn btn-outline-danger btn-sm' href=''>Editar</a>
+                                        <a class='btn btn-outline-danger btn-sm' href='/produtos/editar'>Editar</a>
                                         <a class='btn btn-outline-warning btn-sm' href=''>Excluir</a>
                                     </td>
                                 </tr>
