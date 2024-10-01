@@ -34,15 +34,8 @@
                     </label>
                 </div>
 
-                <button class="btn btn-primary btn-lg w-30">Cadastrar</button>
-                    <label class="w-30" for="endereco">
-                        Endereço
-                        <input type="text" name="endereco" id="endereco" class="form-control">
-                    </label>
-                </div>
-
                 <button class="btn btn-primary btn-lg w-30">Pronto</button>
-          </form>
+            </form>
         </div>
     </div>
 </section>
