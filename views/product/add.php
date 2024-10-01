@@ -4,7 +4,7 @@
             <div class="d-flex justify-content-between bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                 <h6 class="text-white text-capitalize ps-3 mt-1">Novo Produto</h6>
 
-                <a href="/categorias/listar" class="btn btn-light mb-1 me-4">
+                <a href="/produtos/listar" class="btn btn-light mb-1 me-4">
                     Listar
                 </a>
             </div>
