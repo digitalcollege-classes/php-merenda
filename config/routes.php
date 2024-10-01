@@ -7,6 +7,7 @@ use App\Controller\CustomerController;
 use App\Controller\OrderController;
 use App\Controller\ProductController;
 use App\Controller\UserController;
+use App\Controller\AuthController;
 
 return [
     '/' => [CategoryController::class, 'list'],
@@ -33,4 +34,5 @@ return [
     '/usuarios/editar' => [UserController::class, 'edit'],
     '/usuarios/remover' => [UserController::class, 'remove'],
 
+    '/login' => [AuthController::class, 'login']
 ];
