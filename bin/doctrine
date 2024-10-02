@@ -6,12 +6,12 @@ use Doctrine\ORM\Tools\Console\EntityManagerProvider\SingleManagerProvider;
 
 $entityManager = require_once dirname(__DIR__) . '/bootstrap.php';
 
-$commands = []; // para criar novos comandos
+$commands = []; //vc poderia criar seus proprios comandos
 
 ConsoleRunner::run(
     new SingleManagerProvider($entityManager),
     $commands
 );
 
-// para testar basta executar no container do php
+//pra testar basta executar no container do php
 // php bin/doctrine

@@ -13,18 +13,15 @@ class Category
     private int $id;
 
     #[ORM\Column]
-    private string $name;
-
-    #[ORM\Column]
     private string $description;
 
     #[ORM\Column]
     private string $image;
 
-    public function __construct(string $name)
-    {
-        $this->name = $name;
-    }
+    public function __construct(
+        #[ORM\Column(length: 30)]
+        private string $name
+    ) {}
 
     public function getName(): string
     {

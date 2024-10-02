@@ -1,38 +1,35 @@
 <?php
+//arquivo de configuracao da conexao (doctrine)
 
-// arquivo de configuração da conexão (doctrine)
-use Doctrine\DBAL\DriverManager;    // Fazer Conexão
-use Doctrine\ORM\EntityManager;     // Gerenciar os dados das tabelas (DataMapper)
-use Doctrine\ORM\ORMSetup;          // Configuração da Conexão
+use Doctrine\DBAL\DriverManager; //fazer a conexao
+use Doctrine\ORM\EntityManager; //gerenciar os dados das tabelas (DataMapper)
+use Doctrine\ORM\ORMSetup; //configurar a conexao
 
 require_once 'vendor/autoload.php';
 
 // TODO: mover para um arquivo .env
-
-$host = 'oo-mysql';         // endereço do banco de dados
+$host = 'oo-mysql'; //o endereco do banco de dados
 $user = 'user';
 $password = 'password';
 $database = 'db_name';
 
-// Configura onde estão as Entidades
+//configura onde estao as entidades
 $config = ORMSetup::createAttributeMetadataConfiguration(
     paths: [__DIR__ . '/src/Entity'],
     isDevMode: true
 );
 
-// Abrir a Conexão
-$connection = DriverManager::getConnection(
-    [
-        'driver' => 'pdo_mysql',
-        'dbname' => $database,
-        'user' => $user,
-        'password' => $password,
-        'host' => $host,
-    ]
-);
+//abrir a conexao
+$connection = DriverManager::getConnection([
+    'driver' => 'pdo_mysql',
+    'dbname' => $database,
+    'user' => $user,
+    'password' => $password,
+    'host' => $host,
+]);
 
-// Aqui a gente junta a configuração e a conexão e retorna 
-// o objeto que vai gerenciar o bagulho todo
+//aqui a gente junta a configuracao e a conexao e retorna 
+//o objeto que vai gerenciar o bagulho todo
 $entityManager = new EntityManager($connection, $config);
 
 return $entityManager;
