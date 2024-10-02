@@ -4,13 +4,22 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity]
 class Category 
 {
+    #[ORM\Id] #[ORM\Column(type: 'integer')] #[ORM\GeneratedValue]
+    private int $id;
+
+    #[ORM\Column]
     private string $description;
 
+    #[ORM\Column]
     private string $image;
 
     public function __construct(
+        #[ORM\Column(length: 30)]
         private string $name
     ) {
     }
