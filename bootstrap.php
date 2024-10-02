@@ -15,7 +15,7 @@ $database = 'db_name';
 
 //configura onde estao as entidades
 $config = ORMSetup::createAttributeMetadataConfiguration(
-    paths: [__DIR__.'/src/Entity'],
+    paths: [__DIR__ . '/src/Entity'],
     isDevMode: true
 );
 
@@ -26,11 +26,10 @@ $connection = DriverManager::getConnection([
     'user' => $user,
     'password' => $password,
     'host' => $host,
-]); 
+]);
 
 //aqui a gente junta a configuracao e a conexao e retorna 
 //o objeto que vai gerenciar o bagulho todo
 $entityManager = new EntityManager($connection, $config);
 
 return $entityManager;
-

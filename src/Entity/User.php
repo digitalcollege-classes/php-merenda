@@ -4,17 +4,38 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 use DateTime;
 
+#[ORM\Entity]
 class User
 {
+    #[ORM\Id] #[ORM\Column(type: 'integer')] #[ORM\GeneratedValue]
+    private int $id;
+
+    #[ORM\Column]
     private string $name;
+
+    #[ORM\Column]
     private string $email;
+
+    #[ORM\Column]
     private string $password;
+
+    #[ORM\Column]
     private string $photo;
+
+    #[ORM\Column]
     private string $type;
+
+    #[ORM\Column]
     private DateTime $createdAt;
+
+    #[ORM\Column]
     private DateTime $updatedAt;
+
+    #[ORM\Column]
     private DateTime $lastLogin;
 
     public function getName(): string

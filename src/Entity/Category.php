@@ -7,7 +7,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
-class Category 
+class Category
 {
     #[ORM\Id] #[ORM\Column(type: 'integer')] #[ORM\GeneratedValue]
     private int $id;
@@ -21,8 +21,7 @@ class Category
     public function __construct(
         #[ORM\Column(length: 30)]
         private string $name
-    ) {
-    }
+    ) {}
 
     public function getName(): string
     {
