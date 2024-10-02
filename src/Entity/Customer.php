@@ -4,18 +4,31 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+#[ORM\Entity]
 class Customer
 {
+
+    #[ORM\Id]
+    #[ORM\Column(type: 'integer')]
+    #[ORM\GeneratedValue]
+    private int $id;
+
+    #[ORM\Column]
     private string $name;
     
+    #[ORM\Column]
     private Address $address;
 
+    #[ORM\Column]
     private string $email;
 
+    #[ORM\Column]
     private string $phone;
 
+    #[ORM\Column]
     private string $photo;
 
+    #[ORM\Column(type: 'boolean')]
     private bool $status;
 
     public function __construct(string $name, string $phone)
