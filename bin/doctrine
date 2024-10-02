@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+<?php
+
+use Doctrine\ORM\Tools\Console\ConsoleRunner;
+use Doctrine\ORM\Tools\Console\EntityManagerProvider\SingleManagerProvider;
+
+$entityManager = require_once dirname(__DIR__) . '/bootstrap.php';
+
+$commands = []; //vc poderia criar seus proprios comandos
+
+ConsoleRunner::run(
+    new SingleManagerProvider($entityManager),
+    $commands
+);
+
+//pra testar basta executar no container do php
+// php bin/doctrine
