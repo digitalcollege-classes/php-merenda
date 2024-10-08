@@ -36,7 +36,7 @@
                                     <td>22:00</td>
                                     <td>22:10</td>
                                     <td>
-                                        <a class='btn btn-outline-danger btn-sm' href=''>Editar</a>
+                                        <a class='btn btn-outline-danger btn-sm' href='/pedidos/editar'>Editar</a>
                                         <a class='btn btn-outline-warning btn-sm' href=''>Excluir</a>
                                     </td>
                                 </tr>
