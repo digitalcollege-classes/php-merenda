@@ -13,7 +13,6 @@ class CategoryController extends AbstractController implements ControllerInterfa
 
     public function list(): void
     {
-
         $this->render('category/list');
     }
 

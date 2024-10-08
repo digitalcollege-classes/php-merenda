@@ -64,6 +64,49 @@ classDiagram
     }
 ```
 
+## Como instalar
+
+- passo 1: Faca o clone do projeto
+
+```bash
+git clone git@github.com:digitalcollege-classes/php-merenda.git
+```
+
+> Voce pode preferir executar apenas um comando para facilitar e nao necessitar dos outros passos.
+
+Entre no diretorio e execute:
+
+```shell
+make setup
+```
+
+- passo 2: Executar o projeto
+
+```
+docker compose up -d
+```
+
+- passo 3: Entre no container do PHP
+
+```shell 
+docker ps
+
+docker exec -it <id> bash
+```
+
+- passo 4: Instalar as depedencias (dentro do container)
+
+```shell
+composer install
+```
+
+- passo 5: Criar o esquema do banco de dados
+
+```shell
+php bin/doctrine orm:schema-tool:update --force
+```
+
+
 
 ## Como Contribuir
 
