@@ -1,12 +1,11 @@
-<?php 
-    if ($view !== 'auth/login') {
-        include '../views/_components/menu.php';
-    }
+<?php
+if (false === $hideMenu)
+    include '../views/_components/menu.php';
 ?>
 
 <main class="main-content border-radius-lg">
 
-<?php
-    include '../views/_components/navbar.php';
-?>
-
+    <?php
+    if (false === $hideNavBar)
+        include '../views/_components/navbar.php';
+    ?>

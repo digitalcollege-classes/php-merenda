@@ -6,7 +6,7 @@ namespace App\Controller;
 
 abstract class AbstractController
 {
-    protected function render(string $view): void
+    protected function render(string $view, bool $hideMenu = false, bool $hideNavBar = false): void
     {
         include '../views/_layouts/head.php';
         include '../views/_components/content.php';

@@ -23,7 +23,7 @@ return [
     '/clientes/remover' => [CustomerController::class, 'remove'],
 
     '/pedidos/listar' => [OrderController::class, 'list'],
-   
+
     '/produtos/listar' => [ProductController::class, 'list'],
     '/produtos/adicionar' => [ProductController::class, 'add'],
     '/produtos/editar' => [ProductController::class, 'edit'],
