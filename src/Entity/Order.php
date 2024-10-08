@@ -4,15 +4,35 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 
+#[ORM\Entity]
 class Order 
 {
+    #[ORM\Id]
+    #[ORM\Column(type: 'integer')]
+    #[ORM\GeneratedValue]
+    private int $id;
+
+    
+    #[ORM\Column]
     private string $type;
+    
+    #[ORM\Column]
     private array $items;
+    
+    #[ORM\ManyToOne(targetEntity: Customer::class)]
+    #[ORM\JoinColumn(name: 'customer_id', referencedColumnName: 'id')]
     private Customer $customer;
+    
+    #[ORM\Column]
     private string $status;
+    
+    #[ORM\Column]
     private DateTime $createdAt;
+    
+    #[ORM\Column]
     private DateTime $updateAt;
 
     public function getType(): string
