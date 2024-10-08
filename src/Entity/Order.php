@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 
 #[ORM\Entity]
+#[ORM\Table(name: 'orders')]
 class Order 
 {
     #[ORM\Id]
