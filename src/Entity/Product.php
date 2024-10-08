@@ -4,19 +4,41 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use DateTime;
+
+#[ORM\Entity]
 class Product
 {
+    #[ORM\Id]
+    #[ORM\Column(type: 'integer')]
+    #[ORM\GeneratedValue]
+    private int $id;
+
+    #[ORM\Column]
     private string $name;
     
+    #[ORM\ManyToOne(targetEntity: Category::class)]
+    #[ORM\JoinColumn(name: 'category_id', referencedColumnName: 'id')]
     private Category $category;
     
+    #[ORM\Column]
     private array $images;
     
+    #[ORM\Column]
     private int $quantity;
     
+    #[ORM\Column]
     private float $price;
     
+    #[ORM\Column (type: 'boolean')]
     private bool $available;
+
+    #[ORM\Column]
+    private DateTime $createdAt;
+    
+    #[ORM\Column]
+    private DateTime $updateAt;
 
     public function getName(): string
     {

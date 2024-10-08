@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use DateTime;
+
 #[ORM\Entity]
 class Customer
 {
-
     #[ORM\Id]
     #[ORM\Column(type: 'integer')]
     #[ORM\GeneratedValue]
@@ -15,8 +17,9 @@ class Customer
 
     #[ORM\Column]
     private string $name;
-    
-    #[ORM\Column]
+
+    #[ORM\ManyToOne(targetEntity: Address::class)]
+    #[ORM\JoinColumn(name: 'customer_id', referencedColumnName: 'id')]
     private Address $address;
 
     #[ORM\Column]
@@ -30,6 +33,12 @@ class Customer
 
     #[ORM\Column(type: 'boolean')]
     private bool $status;
+
+    #[ORM\Column]
+    private DateTime $createdAt;
+    
+    #[ORM\Column]
+    private DateTime $updateAt;
 
     public function __construct(string $name, string $phone)
     {
