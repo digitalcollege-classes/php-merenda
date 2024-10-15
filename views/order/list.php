@@ -25,16 +25,21 @@
                 </thead>
                 <tbody>
                     <?php 
-                        for ($i = 1; $i <= 10; $i++) {
+                        foreach ($orders as $ord) {
+                            $id = $ord->getId();
+                            $createdAt = $ord->getCreatedAt();
+                            $updateAt = $ord->getUpdateAt();
+                            $items = count($ord->getItems());
+
                             echo "
                                 <tr>
-                                    <td>{$i}</td>
-                                    <td>Tipo {$i}</td>
-                                    <td>Item {$i}</td>
-                                    <td>Cliente {$i}</td>
-                                    <td>Ativo</td>
-                                    <td>22:00</td>
-                                    <td>22:10</td>
+                                    <td>{$id}</td>
+                                    <td> {$ord->getType()}</td>
+                                    <td>{$items}</td>
+                                    <td>{$ord->getCustomer()}</td>  
+                                    <td>{$ord->getStatus()}</td>
+                                    <td>{$createdAt->format('Y-m-d H:i:s')}</td>
+                                    <td>{$updateAt->format('Y-m-d H:i:s')}</td>
                                     <td>
                                         <a class='btn btn-outline-danger btn-sm' href='/pedidos/editar'>Editar</a>
                                         <a class='btn btn-outline-warning btn-sm' href=''>Excluir</a>
