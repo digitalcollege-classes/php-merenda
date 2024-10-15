@@ -40,7 +40,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php
+                  <?php
                     foreach ($users as $user) {
                         $id = $user->getId();
                         $image = $user->getPhoto();

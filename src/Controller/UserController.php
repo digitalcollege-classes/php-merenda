@@ -19,9 +19,29 @@ class UserController extends AbstractController implements ControllerInterface
         $this->entityManager = Connection::getEntityManager();
         $this->repository = $this->entityManager->getRepository(User::class);
     }
+
     public function add(): void
     {
-        $this->render('user/add');
+        if (true === empty($_POST)) {
+            $this->render('user/add');
+            return;
+        }
+
+        $object = new User();
+        $object->setName($_POST['name']);
+        $object->setEmail($_POST['email']);
+        $object->setPassword($_POST['password']);
+
+        $object->setPhoto('');
+        $object->setType('');
+        $object->setCreatedAt(new \DateTime());
+        $object->setUpdatedAt(new \DateTime());
+        $object->setLastLogin(new \DateTime());
+
+        $this->entityManager->persist($object);
+        $this->entityManager->flush();
+
+        header('location: /usuarios/listar');
     }
 
     public function list(): void
