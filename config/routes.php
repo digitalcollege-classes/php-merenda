@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Controller\AddressController;
 use App\Controller\CategoryController;
 use App\Controller\CustomerController;
 use App\Controller\OrderController;
@@ -9,6 +10,7 @@ use App\Controller\ProductController;
 use App\Controller\UserController;
 use App\Controller\AuthController;
 use App\Controller\DashboardController;
+use App\Entity\Address;
 
 return [
     '/' => [DashboardController::class, 'list'],
@@ -22,6 +24,8 @@ return [
     '/clientes/adicionar' => [CustomerController::class, 'add'],
     '/clientes/editar' => [CustomerController::class, 'edit'],
     '/clientes/remover' => [CustomerController::class, 'remove'],
+
+    '/enderecos/listar' => [AddressController::class, 'list'],
 
     '/pedidos/listar' => [OrderController::class, 'list'],
     '/pedidos/editar' => [OrderController::class, 'edit'],
