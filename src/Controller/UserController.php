@@ -38,6 +38,11 @@ class UserController extends AbstractController implements ControllerInterface
 
     public function remove(): void
     {
-        echo "excluir...";
+        $user = $this->repository->find($_GET['id']);
+
+        $this->entityManager->remove($user);
+        $this->entityManager->flush();
+
+        header('location: /usuarios/listar');
     }
 }

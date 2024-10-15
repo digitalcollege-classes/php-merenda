@@ -23,7 +23,7 @@
             <div class="d-flex justify-content-between bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                 <h6 class="text-white text-capitalize ps-3 mt-1">Listar Usuarios</h6>
 
-                <a href="/categorias/adicionar" class="btn btn-light mb-1 me-4">
+                <a href="/usuarios/adicionar" class="btn btn-light mb-1 me-4">
                     Add
                 </a>
             </div>
@@ -52,7 +52,7 @@
                                     <td>{$user->getEmail()}</td>
                                     <td> <img onclick='openModal(`{$image}`)' data-bs-toggle='modal' data-bs-target='#modalImage' src='{$image}' width='50px'> </td>
                                     <td>
-                                        <a class='btn btn-outline-danger btn-sm' href='/categorias/editar'>Editar</a>
+                                        <a class='btn btn-outline-danger btn-sm' href='/usuarios/editar'>Editar</a>
                                         <a onclick='confirmRemove({$id})' href='#' class='btn btn-outline-warning btn-sm'>Excluir</a>
                                     </td>
                                 </tr>
