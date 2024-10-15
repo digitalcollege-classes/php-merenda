@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 
 #[ORM\Entity]
-class Address
+class Address 
 {
     #[ORM\Id] #[ORM\Column(type: 'integer')] #[ORM\GeneratedValue]
     private int $id;
@@ -29,6 +30,12 @@ class Address
 
     #[ORM\Column]
     private string $state;
+
+    #[ORM\Column]
+    private DateTime $createdAt;
+    
+    #[ORM\Column]
+    private DateTime $updateAt;
 
     public function full(): string
     {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 
 #[ORM\Entity]
 class Product
@@ -18,7 +18,8 @@ class Product
     #[ORM\Column]
     private string $name;
     
-    #[ORM\Column]
+    #[ORM\ManyToOne(targetEntity: Category::class)]
+    #[ORM\JoinColumn(name: 'category_id', referencedColumnName: 'id')]
     private Category $category;
     
     #[ORM\Column]
@@ -32,6 +33,12 @@ class Product
     
     #[ORM\Column (type: 'boolean')]
     private bool $available;
+
+    #[ORM\Column]
+    private DateTime $createdAt;
+    
+    #[ORM\Column]
+    private DateTime $updateAt;
 
     public function getName(): string
     {
