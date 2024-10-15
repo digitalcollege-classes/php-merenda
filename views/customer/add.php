@@ -3,33 +3,30 @@
         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
             <div class="d-flex justify-content-between bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                 <h6 class="text-white text-capitalize ps-3 mt-1">Novo Cliente</h6>
-
-                <a href="/clientes/listar" class="btn btn-light mb-1 me-4">
-                    Listar
-                </a>
+                <a href="/clientes/listar" class="btn btn-light mb-1 me-4">Listar</a>
             </div>
         </div>
         <div class="card-body p-5">
-            <form method="post" action="">
+            <form method="post" action="" enctype="multipart/form-data">
                 <div class="input-group input-group-outline mb-3">
-                    <label class="w-30" for="name">
-                        Nome
-                        <input type="text" name="name" id="name" class="form-control">
-                    </label>
+                    <label class="w-30" for="name">Nome</label>
+                    <input type="text" name="name" id="name" class="form-control" required>
                 </div>
 
                 <div class="input-group input-group-outline mb-3">
-                    <label class="w-30" for="email">
-                        Email
-                        <input type="text" name="email" id="email" class="form-control">
-                    </label>
+                    <label class="w-30" for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" required>
                 </div>
 
                 <div class="input-group input-group-outline mb-3">
-                    <label class="w-30" for="phone">
-                        Telefone
-                        <input type="text" name="phone" id="phone" class="form-control">
-                    </label>
+                    <label class="w-30" for="phone">Telefone</label>
+                    <input type="text" name="phone" id="phone" class="form-control" required>
+                </div>
+
+                <!-- Campo de upload para foto -->
+                <div class="input-group input-group-outline mb-3">
+                    <label class="w-30" for="photo">Foto</label>
+                    <input type="file" name="photo" id="photo" class="form-control" accept="image/*">
                 </div>
 
                 <button class="btn btn-primary btn-lg w-30">Pronto</button>
@@ -37,4 +34,3 @@
         </div>
     </div>
 </section>
-
