@@ -9,10 +9,8 @@ use App\Entity\User;
 use Doctrine\ORM\EntityManager;
 use Doctrine\Persistence\ObjectRepository;
 
-
 class UserController extends AbstractController implements ControllerInterface
 {
-
     private EntityManager $entityManager;
     private ObjectRepository $repository;
 
@@ -21,7 +19,6 @@ class UserController extends AbstractController implements ControllerInterface
         $this->entityManager = Connection::getEntityManager();
         $this->repository = $this->entityManager->getRepository(User::class);
     }
-
 
     public function add(): void
     {
