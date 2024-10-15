@@ -22,22 +22,24 @@
                 </thead>
                 <tbody>
                     <?php
-                    for ($i = 1; $i <= 10; $i++) {
+                    foreach ($users as $cat) {
+                        $id = $cat->getId();
+
                         echo "
-                                <tr>
-                                    <td>{$i}</td>
-                                    <td>Nome Usuário {$i}</td>
-                                    <td>Email {$i}</td>
-                                    <td>Senha {$i}</td>
-                             
-                                    <td>
-                                        <a class='btn btn-outline-danger btn-sm' href='/usuarios/editar'>Editar</a>
-                                        <a class='btn btn-outline-warning btn-sm' href=''>Excluir</a>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>{$id}</td>
+                                <td>{$cat->getName()}</td>
+                                <td>{$cat->getEmail()}</td>
+                                <td>{$cat->getPassword()}</td>
+                                <td>
+                                    <a class='btn btn-outline-danger btn-sm' href='/categorias/editar'>Editar</a>
+                                    <a onclick='confirmRemove({$id})' href='#' class='btn btn-outline-warning btn-sm'>Excluir</a>
+                                </td>
+                            </tr>
                             ";
                     }
                     ?>
+
                 </tbody>
             </table>
         </div>
