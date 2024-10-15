@@ -8,9 +8,10 @@ use App\Controller\OrderController;
 use App\Controller\ProductController;
 use App\Controller\UserController;
 use App\Controller\AuthController;
+use App\Controller\DashboardController;
 
 return [
-    '/' => [CategoryController::class, 'list'],
+    '/' => [DashboardController::class, 'list'],
 
     '/categorias/listar' => [CategoryController::class, 'list'],
     '/categorias/adicionar' => [CategoryController::class, 'add'],
