@@ -6,8 +6,12 @@ namespace App\Controller;
 
 abstract class AbstractController
 {
-    protected function render(string $view): void
+    protected function render(string $view, array $data = []): void
     {
+        //desestruturando o array $data
+        // ['a' => 'Nome'] -> $a = 'Nome';
+        extract($data);
+
         include '../views/_layouts/head.php';
         include '../views/_components/content.php';
 

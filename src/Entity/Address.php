@@ -10,14 +10,12 @@ use DateTime;
 #[ORM\Entity]
 class Address 
 {
-    #[ORM\Id]
-    #[ORM\Column(type: 'integer')]
-    #[ORM\GeneratedValue]
+    #[ORM\Id] #[ORM\Column(type: 'integer')] #[ORM\GeneratedValue]
     private int $id;
 
     #[ORM\Column]
     private string $street;
-    
+
     #[ORM\Column]
     private string $number;
 
@@ -94,4 +92,3 @@ class Address
         $this->state = $state;
     }
 }
-
