@@ -4,8 +4,21 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Connection\Connection;
+use App\Entity\User;
+use Doctrine\ORM\EntityManager;
+use Doctrine\Persistence\ObjectRepository;
+
 class UserController extends AbstractController implements ControllerInterface
 {
+    private EntityManager $entityManager;
+    private ObjectRepository $repository;
+
+    public function __construct()
+    {
+        $this->entityManager = Connection::getEntityManager();
+        $this->repository = $this->entityManager->getRepository(User::class);
+    }
     public function add(): void
     {
         $this->render('user/add');
@@ -13,7 +26,9 @@ class UserController extends AbstractController implements ControllerInterface
 
     public function list(): void
     {
-        $this->render('user/list');
+        $this->render('user/list', [
+            'users' => $this->repository->findAll(),
+        ]);
     }
 
     public function edit(): void
