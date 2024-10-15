@@ -2,20 +2,35 @@
 
 declare(strict_types=1);
 
+
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity]
 class Product
 {
+    #[ORM\Id]
+    #[ORM\Column(type: 'integer')]
+    #[ORM\GeneratedValue]
+    private int $id;
+
+    #[ORM\Column]
     private string $name;
     
+    #[ORM\Column]
     private Category $category;
     
+    #[ORM\Column]
     private array $images;
     
+    #[ORM\Column]
     private int $quantity;
     
+    #[ORM\Column]
     private float $price;
     
+    #[ORM\Column (type: 'boolean')]
     private bool $available;
 
     public function getName(): string
