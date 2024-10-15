@@ -4,18 +4,30 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-class Address 
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity]
+class Address
 {
+    #[ORM\Id] #[ORM\Column(type: 'integer')] #[ORM\GeneratedValue]
+    private int $id;
+
+    #[ORM\Column]
     private string $street;
-    
+
+    #[ORM\Column]
     private string $number;
 
+    #[ORM\Column]
     private string $zipcode;
 
+    #[ORM\Column]
     private string $district;
 
+    #[ORM\Column]
     private string $city;
 
+    #[ORM\Column]
     private string $state;
 
     public function full(): string
@@ -73,4 +85,3 @@ class Address
         $this->state = $state;
     }
 }
-
