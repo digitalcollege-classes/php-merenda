@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Connection\Connection;
 use App\Entity\Category;
+use App\Service\ValidationService;
 use Doctrine\ORM\EntityManager;
 use Doctrine\Persistence\ObjectRepository;
 
@@ -22,8 +23,9 @@ class CategoryController extends AbstractController implements ControllerInterfa
 
     public function add(): void
     {
-        if (true === empty($_POST)) {
+        if (true === ValidationService::foundErrors()) {
             $this->render('category/add');
+            ValidationService::stop();
             return;
         }
 

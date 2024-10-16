@@ -1,4 +1,12 @@
-<section class="container-fluid">
+<?php
+
+use App\Service\ValidationService;
+
+ValidationService::renderErrors();
+
+?>
+
+<div class="container-fluid">
     <div class="card my-4 mt-5">
         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
             <div class="d-flex justify-content-between bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
@@ -36,5 +44,4 @@
             </form>
         </div>
     </div>
-</section>
-
+</div>
