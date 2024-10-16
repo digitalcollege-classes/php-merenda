@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Connection\Connection;
 use App\Entity\User;
+use App\Security\UserSecurity;
 use Doctrine\ORM\EntityManager;
 use Doctrine\Persistence\ObjectRepository;
 
@@ -30,11 +31,15 @@ class UserController extends AbstractController implements ControllerInterface
         $object = new User();
         $object->setName($_POST['name']);
         $object->setEmail($_POST['email']);
-        $object->setPassword($_POST['password']);
+        $object->setPassword(
+            UserSecurity::encryptPassword($_POST['password'])
+        );
 
         $object->setPhoto('');
         $object->setType('');
+        
         $object->setCreatedAt(new \DateTime());
+
         $object->setUpdatedAt(new \DateTime());
         $object->setLastLogin(new \DateTime());
 
