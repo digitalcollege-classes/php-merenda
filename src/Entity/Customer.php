@@ -36,7 +36,7 @@ class Customer
 
     #[ORM\Column]
     private DateTime $createdAt;
-    
+
     #[ORM\Column]
     private DateTime $updateAt;
 
@@ -44,6 +44,13 @@ class Customer
     {
         $this->name = $name;
         $this->phone = $phone;
+        $this->status = true;
+        $this->createdAt = new DateTime();
+        $this->updateAt = new DateTime();
+    }
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     public function getName(): string
@@ -104,5 +111,14 @@ class Customer
     public function setStatus(bool $status): void
     {
         $this->status = $status;
+    }
+
+    public function setCreatedAt(DateTime $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+    public function setUpdateAt(DateTime $updateAt): void
+    {
+        $this->updateAt = $updateAt;
     }
 }
