@@ -10,7 +10,6 @@ use App\Controller\ProductController;
 use App\Controller\UserController;
 use App\Controller\AuthController;
 use App\Controller\DashboardController;
-use App\Entity\Address;
 
 return [
     '/' => [DashboardController::class, 'list'],
@@ -29,7 +28,7 @@ return [
 
     '/pedidos/listar' => [OrderController::class, 'list'],
     '/pedidos/editar' => [OrderController::class, 'edit'],
-   
+
     '/produtos/listar' => [ProductController::class, 'list'],
     '/produtos/adicionar' => [ProductController::class, 'add'],
     '/produtos/editar' => [ProductController::class, 'edit'],
