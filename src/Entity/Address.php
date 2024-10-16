@@ -32,14 +32,19 @@ class Address
     private string $state;
 
     #[ORM\Column]
-    private DateTime $createdAt;
+    public DateTime $createdAt;
     
     #[ORM\Column]
-    private DateTime $updateAt;
+    public DateTime $updateAt;
 
     public function full(): string
     {
-        return "{$this->street}, {$this->number} - {$this->district}, {$this->city}-{$this->state}";
+        return "{$this->street}, {$this->number} - {$this->district}, {$this->city}-{$this->state},{$this->zipcode}";
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     public function getStreet(): string
@@ -60,6 +65,16 @@ class Address
     public function setNumber(string $number): void
     {
         $this->number = $number;
+    }
+
+    public function getZipcode(): string
+    {
+        return $this->number;
+    }
+    
+    public function setZipcode(string $zip): void
+    {
+        $this->zipcode = $zip;
     }
 
     public function getDistrict(): string

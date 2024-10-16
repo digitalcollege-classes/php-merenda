@@ -22,33 +22,32 @@
                         <th>Estado</th>
                         <th>Criado</th>
                         <th>Alterado</th>
-                        <th>Bairro</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    for ($i = 1; $i < 10; $i++) {
-                        echo "
-                                <tr>
-                                    <td>{$i}</td>
-                                    <td>Nome Usuário {$i}</td>
-                                    <td>{$i}</td>
-                                    <td>604631-14{$i}</td>
-                                    <td>Bairro {$i}</td>
-                                    <td>Cidade {$i}</td>
-                                    <td>Estado {$i}</td>
-                                    <td>Criado {$i}</td>
-                                    <td>Alterado {$i}</td>
-                                    <td>Bairro {$i}</td>
-                                    
+                    foreach ($enderecos as $end) {
+                        $id = $end->getId();
+                        
+                        
 
-                             
-                                    <td>
-                                        <a class='btn btn-outline-danger btn-sm' href='/usuarios/editar'>Editar</a>
-                                        <a class='btn btn-outline-warning btn-sm' href=''>Excluir</a>
-                                    </td>
-                                </tr>
-                            ";
+                        echo "
+                        <tr>
+                            <td>{$id}</td>
+                            <td>{$end->getStreet()}</td>
+                            <td>{$end->getNumber()}</td>
+                            <td>{$end->getZipcode()}</td>
+                            <td>{$end->getDistrict()}</td>
+                            <td>{$end->getCity()}</td>
+                            <td>{$end->getState()}</td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <a class='btn btn-outline-danger btn-sm' href='/enderecos/editar'>Editar</a>
+                                <a onclick='confirmRemove({$id})' href='#' class='btn btn-outline-warning btn-sm'>Excluir</a>
+                            </td>
+                        </tr>
+                        ";
                     }
                     ?>
                 </tbody>

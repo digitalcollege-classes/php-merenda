@@ -3,7 +3,9 @@
 include dirname(__DIR__) . '/vendor/autoload.php';
 
 use App\Entity\Category;
+use App\Entity\Address;
 use App\Entity\Customer;
+
 
 //conexao com o DB atraves do doctrine
 $entityManager = require dirname(__DIR__) . '/bootstrap.php';
@@ -17,12 +19,31 @@ for ($i = 1; $i <= 10; $i++) {
     $entityManager->persist($cat);
 }
 
+for ($i = 1; $i <= 10; $i++) {
+    $end = new Address('Endereco teste '.$i);
+    $end->setStreet('Rua Teste teste '.$i);
+    $end->setNumber ('Rua Teste teste '.$i);
+    $end->setDistrict('Bairro Teste '.$i);
+    $end->setCity('Cidade Teste '.$i);
+    $end->setState('Estado Teste '.$i);
+    $end->setZipcode('6043114 '.$i);
+    
+    $end->createdAt = new DateTime();
+    $end->updateAt = new DateTime();
+
+    $entityManager->persist($end);
+}
+
 $entityManager->flush();
 
 $i--;
-echo "===============================" . PHP_EOL;
-echo "=== {$i} Categorias inseridas" . PHP_EOL;
-echo "===============================" . PHP_EOL;
+echo "===============================".PHP_EOL;
+echo "=== {$i} Categorias inseridas".PHP_EOL;
+echo "===============================".PHP_EOL;
+
+echo "===============================".PHP_EOL;
+echo "=== {$i} Enderecos inseridos".PHP_EOL;
+echo "===============================".PHP_EOL;
 
 // Cadastrar automaticamente 10 customers
 for ($i = 1; $i <= 10; $i++) {
