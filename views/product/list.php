@@ -35,8 +35,8 @@
                                 <td>{$id}</td>
                                 <td>{$prod->getName()}</td>
                                 <td>{$prod->getQuantity()}</td>
-                                <td>{$prod->getPrice()}<td>
-                                <td> <img onclick='openModal(`{$image}`)' data-bs-toggle='modal' data-bs-target='#modalImage' src='{$image}' width='50px'></td>
+                                <td>{$prod->getPrice()}</td>
+                                <td><img onclick='openModal(`{$image}`)' data-bs-toggle='modal' data-bs-target='#modalImage' src='{$image}' width='50px'></td>
                                 <td> {$prod->isAvailable()}</td>
                                 <td> {$prod->getCreatedAt()->format('d/m/Y')}</td>
                                 <td> {$prod->getUpdatedAt()->format('d/m/Y')}</td>
