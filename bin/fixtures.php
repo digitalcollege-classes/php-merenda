@@ -23,14 +23,14 @@ for ($i = 1; $i <= 10; $i++) {
 }
 
 for ($i = 1; $i <= 10; $i++) {
-    $end = new Address('Endereco teste '.$i);
-    $end->setStreet('Rua Teste teste '.$i);
-    $end->setNumber ('Rua Teste teste '.$i);
-    $end->setDistrict('Bairro Teste '.$i);
-    $end->setCity('Cidade Teste '.$i);
-    $end->setState('Estado Teste '.$i);
-    $end->setZipcode('6043114 '.$i);
-    
+    $end = new Address('Endereco teste ' . $i);
+    $end->setStreet('Rua Teste teste ' . $i);
+    $end->setNumber('Rua Teste teste ' . $i);
+    $end->setDistrict('Bairro Teste ' . $i);
+    $end->setCity('Cidade Teste ' . $i);
+    $end->setState('Estado Teste ' . $i);
+    $end->setZipcode('6043114 ' . $i);
+
     $end->createdAt = new DateTime();
     $end->updateAt = new DateTime();
 
@@ -40,18 +40,18 @@ for ($i = 1; $i <= 10; $i++) {
 $entityManager->flush();
 
 $i--;
-echo "===============================".PHP_EOL;
-echo "=== {$i} Categorias inseridas".PHP_EOL;
-echo "===============================".PHP_EOL;
+echo "===============================" . PHP_EOL;
+echo "=== {$i} Categorias inseridas" . PHP_EOL;
+echo "===============================" . PHP_EOL;
 
 
 for ($i = 1; $i <= 10; $i++) {
-    $prod = new Product('Produto teste '.$i);
-    $prod->setName('Nome do produto teste '.$i);
+    $prod = new Product('Produto teste ' . $i);
+    $prod->setName('Nome do produto teste ' . $i);
     $prod->setQuantity('1');
     $prod->setPrice(1);
     $prod->setImages(['https://dcdn.mitiendanube.com/stores/002/905/426/products/69-cachaca-51-luxo-bruta-965ml-ca6f4e0825105be38816970366224183-640-0.webp']);
-    $prod->setAvailable ('Sim');
+    $prod->setAvailable('Sim');
     $prod->setCreatedAt(new \DateTime());
     $prod->setUpdatedAt(new \DateTime());
 
@@ -59,12 +59,12 @@ for ($i = 1; $i <= 10; $i++) {
 }
 //Cadastrar automatcamente 10 pedido.
 
-for($i = 1; $i <= 10; $i++) {
+for ($i = 1; $i <= 10; $i++) {
     $order = new Order();
-    $order->setType('Tipo do pedido'.$i);
+    $order->setType('Tipo do pedido' . $i);
     $order->setItems(['Salsicha']);
-    $order->setCustomer('O cliente que fez o pedido'.$i);
-    $order->setStatus('Status do pedido'.$i);
+    $order->setCustomer('O cliente que fez o pedido' . $i);
+    $order->setStatus('Status do pedido' . $i);
     $order->setCreatedAt(new \DateTime());
     $order->setUpdateAt(new \DateTime());
 
@@ -74,13 +74,13 @@ for($i = 1; $i <= 10; $i++) {
 $entityManager->flush();
 
 $i--;
-echo "===============================".PHP_EOL;
-echo "=== {$i} Produtos inseridos".PHP_EOL;
-echo "===============================".PHP_EOL;
-=======
-echo "===============================".PHP_EOL;
-echo "=== {$i} Enderecos inseridos".PHP_EOL;
-echo "===============================".PHP_EOL;
+echo "===============================" . PHP_EOL;
+echo "=== {$i} Produtos inseridos" . PHP_EOL;
+echo "===============================" . PHP_EOL;
+
+echo "===============================" . PHP_EOL;
+echo "=== {$i} Enderecos inseridos" . PHP_EOL;
+echo "===============================" . PHP_EOL;
 
 // Cadastrar automaticamente 10 customers
 for ($i = 1; $i <= 10; $i++) {
