@@ -16,16 +16,14 @@ class Order
     #[ORM\GeneratedValue]
     private int $id;
 
-    
     #[ORM\Column]
     private string $type;
     
     #[ORM\Column]
     private array $items;
     
-    #[ORM\ManyToOne(targetEntity: Customer::class)]
-    #[ORM\JoinColumn(name: 'customer_id', referencedColumnName: 'id')]
-    private Customer $customer;
+    #[ORM\Column]
+    private string $customer;
     
     #[ORM\Column]
     private string $status;
@@ -35,6 +33,11 @@ class Order
     
     #[ORM\Column]
     private DateTime $updateAt;
+
+    public function getId():Int 
+    {
+        return $this->id;
+    }
 
     public function getType(): string
     {
@@ -57,12 +60,12 @@ class Order
     }
 
 
-    public function getCustomer(): Customer
+    public function getCustomer(): string
     {
         return $this->customer;
     }
 
-    public function setCustomer(Customer $customer): void
+    public function setCustomer(string $customer): void
     {
         $this->customer = $customer;
     }
