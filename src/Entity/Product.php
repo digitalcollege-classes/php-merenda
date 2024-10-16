@@ -40,6 +40,11 @@ class Product
     #[ORM\Column]
     private DateTime $updateAt;
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
     public function getName(): string
     {
         return $this->name;
@@ -98,5 +103,25 @@ class Product
     public function setAvailable(bool $available): void
     {
         $this->available = $available;
+    }
+
+    public function getCreatedAt(): DateTime
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(DateTime $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    public function getUpdatedAt(): DateTime
+    {
+        return $this->updateAt;
+    }
+
+    public function setUpdatedAt(DateTime $updatedAt): void
+    {
+        $this->updateAt = $updatedAt;
     }
 }
