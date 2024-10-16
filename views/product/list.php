@@ -14,26 +14,34 @@
                 <thead>
                     <tr>
                         <th>#ID</th>
-                        <th>Descrição</th>
-                        <th>Categoria</th>
+                        <th>Nome</th>
+                        <th>Quantidade</th>
                         <th>Preço</th>
-                        <th>Ações</th>
+                        <th>Imagem</th>
+                        <th>Disponível</th>
+                        <th>Criado</th>
+                        <th>Atualizado</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
-                        for ($i = 1; $i <= 10; $i++) {
+                <?php 
+                        foreach ($products as $prod) {
+                            $id = $prod->getId();
+                            $image = $prod->getImages()[0] ?? '';
+                           
+
                             echo "
-                                <tr>
-                                    <td>{$i}</td>
-                                    <td>Produto {$i}</td>
-                                    <td>Categoria Tal</td>
-                                    <td>R$ {$i}</td>
-                                    <td>
-                                        <a class='btn btn-outline-danger btn-sm' href='/produtos/editar'>Editar</a>
-                                        <a class='btn btn-outline-warning btn-sm' href=''>Excluir</a>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>{$id}</td>
+                                <td>{$prod->getName()}</td>
+                                <td>{$prod->getQuantity()}</td>
+                                <td>{$prod->getPrice()}</td>
+                                <td><img onclick='openModal(`{$image}`)' data-bs-toggle='modal' data-bs-target='#modalImage' src='{$image}' width='50px'></td>
+                                <td> {$prod->isAvailable()}</td>
+                                <td> {$prod->getCreatedAt()->format('d/m/Y')}</td>
+                                <td> {$prod->getUpdatedAt()->format('d/m/Y')}</td>
+                            
+                            </tr>
                             ";
                         }
                     ?>
@@ -42,4 +50,20 @@
         </div>
     </div>
 </section>
+
+<script>
+    function openModal(image) {
+        document.getElementById('modal-body').innerHTML = `
+            <img src="${image}" width="100%">
+        `;
+    }
+
+    function confirmRemove(id) {
+        let response = confirm('Tem certeza?');
+
+        if (response === true) {
+            window.location.href = '/produtos/remover?id='+id;
+        }
+    }
+</script>
 
