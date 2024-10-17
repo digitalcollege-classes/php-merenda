@@ -7,29 +7,28 @@
             </div>
         </div>
         <div class="card-body p-5">
-            <form method="post" action="" enctype="multipart/form-data">
+            <form class="rounded border border-primary p-3" method="post" action="" enctype="multipart/form-data">
                 <div class="input-group input-group-outline mb-3">
-                    <label class="w-30" for="name">Nome</label>
+                    <label class="w-100" for="name">Nome</label>
                     <input type="text" name="name" id="name" class="form-control" required>
                 </div>
 
                 <div class="input-group input-group-outline mb-3">
-                    <label class="w-30" for="email">Email</label>
+                    <label class="w-100" for="email">Email</label>
                     <input type="email" name="email" id="email" class="form-control" required>
                 </div>
 
                 <div class="input-group input-group-outline mb-3">
-                    <label class="w-30" for="phone">Telefone</label>
+                    <label class="w-100" for="phone">Telefone</label>
                     <input type="text" name="phone" id="phone" class="form-control" required>
                 </div>
 
-                <!-- Campo de upload para foto -->
                 <div class="input-group input-group-outline mb-3">
-                    <label class="w-30" for="photo">Foto</label>
-                    <input type="file" name="photo" id="photo" class="form-control" accept="image/*">
+                    <label class="w-100" for="photo">Foto</label>
+                    <input type="text" name="photo" id="photo" class="form-control">
                 </div>
 
-                <button class="btn btn-primary btn-lg w-30">Pronto</button>
+                <button class="btn btn-primary">Salvar</button>
             </form>
         </div>
     </div>
