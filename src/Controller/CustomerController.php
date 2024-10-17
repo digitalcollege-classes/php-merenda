@@ -22,7 +22,6 @@ class CustomerController extends AbstractController implements ControllerInterfa
         $this->repository = $this->entityManager->getRepository(Customer::class);
     }
 
-
     public function add(): void
     {
         if (true === empty($_POST)) {
@@ -36,17 +35,14 @@ class CustomerController extends AbstractController implements ControllerInterfa
         }
 
         $customer = new Customer($_POST['name'], $_POST['phone']);
-
         $customer->setEmail($_POST['email']);
-        $customer->setStatus(isset($_POST['status']) ? (bool)$_POST['status'] : false);
-
+        $customer->setPhoto($_POST['photo']); // Define o caminho da foto
 
         $this->entityManager->persist($customer);
         $this->entityManager->flush();
 
         header('location: /clientes/listar');
     }
-
 
     public function list(): void
     {
@@ -57,14 +53,38 @@ class CustomerController extends AbstractController implements ControllerInterfa
         ]);
     }
 
-
     public function edit(): void
     {
-        $this->render('customer/edit');
+        $repository = $this->entityManager->getRepository(Customer::class);
+
+        $customer = $repository->find($_GET['id']);
+
+        if (!empty($_POST)) {
+            $customer->setName($_POST['name']);
+            $customer->setEmail($_POST['email']);
+            $customer->setPhone($_POST['phone']);
+            $customer->setPhoto($_POST['photo']);
+            $status = $_POST['status'] === '1' ? true : false;
+            $customer->setStatus($status);
+
+            $this->entityManager->flush();
+
+            header('location: /clientes/listar');
+            return;
+        }
+
+        $this->render('customer/edit', [
+            'customer' => $customer
+        ]);
     }
 
     public function remove(): void
     {
-        echo "excluir...";
+        $customers = $this->repository->find($_GET['id']);
+
+        $this->entityManager->remove($customers);
+        $this->entityManager->flush();
+
+        header('location: /clientes/listar');
     }
 }
