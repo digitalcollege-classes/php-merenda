@@ -33,7 +33,23 @@ class AuthController extends AbstractController
         }
 
         //se chegar ate aqui, é pq tem alguem com esse email
-        echo $user->getPassword();
 
+        if (false === password_verify($_POST['password'], $user->getPassword())) {
+            die('Senha incorreta');
+        }
+
+        //se chegou ate aqui é pq merece logar
+        $_SESSION['user_logged'] = [
+            'id' => $user->getId(),
+            'name' => $user->getName(),
+        ];
+
+        header('location: /');
+    }
+
+    public function logout(): void
+    {
+        session_destroy();
+        header('location: /login');
     }
 }
