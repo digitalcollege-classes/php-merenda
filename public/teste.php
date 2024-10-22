@@ -1,32 +1,18 @@
 <?php
 
-include '../src/Controller/ControllerInterface.php';
+session_start();
 
-use App\Controller\ControllerInterface;
+// usuario --> login
+
+// if login === ok
+
+$_SESSION['logged_user'] = [
+    'id' => 78,
+    'name' => 'Marcus',
+];
+
+// logout
+unset($_SESSION['logged_user']);
+session_destroy();
 
 
-class OrderController implements ControllerInterface
-{
-    public function add(): void
-    {
-        echo "pagina de cadastrar";
-    }
-
-    public function list(): void
-    {
-
-    }
-
-    public function edit(): void
-    {
-
-    }
-
-    public function remove(): void
-    {
-
-    }
-}
-
-$c = new OrderController();
-$c->add();

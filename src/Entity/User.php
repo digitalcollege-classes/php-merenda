@@ -17,7 +17,7 @@ class User
     #[ORM\Column]
     private string $name;
 
-    #[ORM\Column]
+    #[ORM\Column(unique: true)]
     private string $email;
 
     #[ORM\Column]

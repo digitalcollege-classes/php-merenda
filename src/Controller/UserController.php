@@ -9,6 +9,7 @@ use App\Entity\User;
 use App\Security\UserSecurity;
 use Doctrine\ORM\EntityManager;
 use Doctrine\Persistence\ObjectRepository;
+use App\Service\ValidationService;
 
 class UserController extends AbstractController implements ControllerInterface
 {
@@ -23,8 +24,9 @@ class UserController extends AbstractController implements ControllerInterface
 
     public function add(): void
     {
-        if (true === empty($_POST)) {
+        if (true === ValidationService::foundErrors()) {
             $this->render('user/add');
+            ValidationService::stop();
             return;
         }
 

@@ -8,8 +8,6 @@ use App\Entity\Order;
 use App\Entity\Address;
 use App\Entity\Customer;
 
-
-
 //conexao com o DB atraves do doctrine
 $entityManager = require dirname(__DIR__) . '/bootstrap.php';
 

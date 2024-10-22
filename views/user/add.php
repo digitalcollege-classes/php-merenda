@@ -1,3 +1,11 @@
+<?php
+
+use App\Service\ValidationService;
+
+ValidationService::renderErrors();
+
+?>
+
 <section class="container-fluid">
     <div class="card my-4 mt-5">
         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
