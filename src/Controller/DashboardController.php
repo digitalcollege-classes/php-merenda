@@ -6,7 +6,9 @@ namespace App\Controller;
 
 use App\Connection\Connection;
 use App\Entity\Category;
-use App\Entity\Product;
+use App\Entity\Product; 
+use App\Entity\Customer;
+use App\Entity\Order;
 use Doctrine\ORM\EntityManager;
 use Doctrine\Persistence\ObjectRepository;
 
@@ -15,12 +17,16 @@ class DashboardController extends AbstractController implements ControllerInterf
     private EntityManager $entityManager;
     private ObjectRepository $categoryRepository;
     private ObjectRepository $productRepository;
+    private ObjectRepository $customerRepository;
+    private ObjectRepository $orderRepository;
 
     public function __construct()
     {
         $this->entityManager = Connection::getEntityManager();
         $this->categoryRepository = $this->entityManager->getRepository(Category::class);
         $this->productRepository = $this->entityManager->getRepository(Product::class);
+        $this->customerRepository = $this->entityManager->getRepository(Customer::class);
+        $this->orderRepository = $this->entityManager->getRepository(Order::class);
 
     }
 
@@ -34,8 +40,8 @@ class DashboardController extends AbstractController implements ControllerInterf
         $this->render('dashboard/list', [
             'categories' => $this->categoryRepository->count(), 
             'order' => $this->productRepository->count(),
-            'customer' => $this->productRepository->count(),
-            'product' => $this->productRepository->count(),
+            'customer' => $this->customerRepository->count(),
+            'product' => $this->orderRepository->count(),
         ]);
     }
 
