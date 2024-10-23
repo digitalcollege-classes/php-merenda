@@ -12,7 +12,13 @@ class AuthController extends AbstractController
 {
     public function login(): void
     {
+        if (true === isset($_SESSION['user_logged'])) { 
+            header('location: /');
+        }
+
+
         if (true === empty($_POST)) {
+            ViewConfig::hideNavBar(true);
             ViewConfig::hideMenu(true);
             parent::render('auth/login');
             ViewConfig::clearConfigs();

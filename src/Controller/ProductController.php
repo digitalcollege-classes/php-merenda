@@ -19,9 +19,25 @@ class ProductController extends AbstractController implements ControllerInterfac
         $this->entityManager = Connection::getEntityManager();
         $this->repository = $this->entityManager->getRepository(Product::class);
     }
+
     public function add(): void
     {
-        $this->render('product/add');
+        if (empty($_POST)) {
+            $this->render('product/add');
+            return;
+        }
+
+        echo '<pre>';
+        var_dump($_POST);
+        var_dump($_FILES);
+
+        $file = $_FILES['image']['tmp_name'];
+
+        var_dump(mime_content_type($file));
+
+        move_uploaded_file($file, 'images/produto-123.jpg');
+
+        echo '<br><br><br><br>';
     }
 
     public function list(): void

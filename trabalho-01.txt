@@ -1,0 +1,26 @@
+Refactoring.guru
+
+1 - Adapter / Mediator {
+    Tiago
+    Edivan
+    Nayara
+}
+
+2 - Builder / Template Method {
+    Jorge
+    Levi
+    Mathew
+}
+
+3 - Abstract Factory / Bridge {
+    Jaime
+    Marcus
+    Matheus
+}
+
+4 - Facade / Composite {
+    Rosana
+    Joao Pedro
+    Samuel
+}
+

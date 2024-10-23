@@ -128,10 +128,14 @@
                     </ul>
                 </li>
                 <li class="nav-item d-flex align-items-center">
-                    <a href="/login" class="nav-link text-body font-weight-bold px-0">
+                    <a href="#" class="nav-link text-body font-weight-bold px-0">
                         <i class="fa fa-user me-sm-1"></i>
 
-                        <span class="d-sm-inline d-none">Fazer Login</span>
+                        <span class="d-sm-inline d-none">
+                            <?php
+                                echo $_SESSION['user_logged']['name'];
+                            ?>
+                        </span>
 
                     </a>
                 </li>

@@ -6,20 +6,14 @@ namespace App\Service;
 
 class ValidationService
 {
-    public static function start(): void
-    {
-        session_start();
-    }
-
     public static function stop(): void
     {
-        session_destroy();
+        unset($_SESSION['has_empty_fields']);
+        //session_destroy();
     }
 
     public static function foundErrors(): bool
     {
-        self::start();
-
         $foundErrors = true === empty($_POST) || true === self::hasEmptyFields();
 
         if (false === $foundErrors)

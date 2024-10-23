@@ -39,5 +39,6 @@ return [
     '/usuarios/editar' => [UserController::class, 'edit'],
     '/usuarios/remover' => [UserController::class, 'remove'],
 
-    '/login' => [AuthController::class, 'login']
+    '/login' => [AuthController::class, 'login'],
+    '/logout' => [AuthController::class, 'logout'],
 ];

@@ -13,6 +13,7 @@ abstract class AbstractController
         extract($data);
 
         include '../views/_layouts/head.php';
+        
         include '../views/_components/content.php';
 
         include "../views/{$view}.php";

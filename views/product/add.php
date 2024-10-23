@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="card-body p-5">
-            <form method="post" action="">
+            <form method="post" enctype="multipart/form-data" action="">
                 <div class="input-group input-group-outline mb-3">
                     <label class="w-30" for="name">
                         Nome
@@ -28,7 +28,7 @@
                 <div class="input-group input-group-outline mb-3">
                     <label class="w-30" for="image">
                         Imagem
-                        <input type="text" name="image" id="image" class="form-control">
+                        <input type="file" name="image" id="image" class="form-control">
                     </label>
                 </div>
 
