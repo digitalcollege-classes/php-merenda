@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Connection\Connection;
 use App\Entity\Product;
+use App\Entity\Category;
 use Doctrine\ORM\EntityManager;
 use Doctrine\Persistence\ObjectRepository;
 
@@ -27,17 +28,31 @@ class ProductController extends AbstractController implements ControllerInterfac
             return;
         }
 
-        echo '<pre>';
-        var_dump($_POST);
-        var_dump($_FILES);
+        $product = new Product();
+        $product->setName($_POST['name']);
+        $product->setQuantity((int) $_POST['quantity']);
+        $product->setPrice((float) $_POST['price']);
+        $product->setAvailable((bool) $_POST['available']);
+        $product->setImages(['/images/foto.jpg']);
+        $product->setCreatedAt(new \DateTime());
+        $product->setUpdatedAt(new \DateTime());
+        
+        $category = $this->entityManager
+                         ->getRepository(Category::class)
+                         ->find(2);
+
+        $product->setCategory($category);
+
+        $this->entityManager->persist($product);
+        $this->entityManager->flush();
 
         $file = $_FILES['image']['tmp_name'];
 
-        var_dump(mime_content_type($file));
+        $mime = mime_content_type($file);
 
-        move_uploaded_file($file, 'images/produto-123.jpg');
+        move_uploaded_file($file, 'images/foto.jpg');
 
-        echo '<br><br><br><br>';
+        header('location: /produtos/listar');
     }
 
     public function list(): void
