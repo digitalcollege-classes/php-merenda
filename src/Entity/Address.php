@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 
 #[ORM\Entity]
-class Address 
+class Address
 {
     #[ORM\Id] #[ORM\Column(type: 'integer')] #[ORM\GeneratedValue]
     private int $id;
@@ -33,7 +33,7 @@ class Address
 
     #[ORM\Column]
     public DateTime $createdAt;
-    
+
     #[ORM\Column]
     public DateTime $updateAt;
 
@@ -69,9 +69,9 @@ class Address
 
     public function getZipcode(): string
     {
-        return $this->number;
+        return $this->zipcode;
     }
-    
+
     public function setZipcode(string $zip): void
     {
         $this->zipcode = $zip;

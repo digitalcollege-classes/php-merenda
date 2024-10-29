@@ -20,16 +20,13 @@
                         <th>Bairro</th>
                         <th>Cidade</th>
                         <th>Estado</th>
-                        <th>Criado</th>
-                        <th>Alterado</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     foreach ($enderecos as $end) {
                         $id = $end->getId();
-                        
-                        
 
                         echo "
                         <tr>
@@ -40,8 +37,6 @@
                             <td>{$end->getDistrict()}</td>
                             <td>{$end->getCity()}</td>
                             <td>{$end->getState()}</td>
-                            <td></td>
-                            <td></td>
                             <td>
                                 <a class='btn btn-outline-danger btn-sm' href='/enderecos/editar'>Editar</a>
                                 <a onclick='confirmRemove({$id})' href='#' class='btn btn-outline-warning btn-sm'>Excluir</a>
