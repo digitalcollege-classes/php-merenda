@@ -21,7 +21,15 @@
                 <div class="input-group input-group-outline mb-3">
                     <label class="w-30" for="category">
                         Categoria
-                        <input type="text" name="category" id="category" class="form-control">
+                        <select name="category" id="category" class="form-select">
+                            <?php
+                                foreach ($categories as $category) {
+                                    echo "<option value='{$category->getId()}'>
+                                        {$category->getName()}
+                                    </option>";
+                                }
+                            ?>
+                        </select>
                     </label>
                 </div>
 
@@ -51,7 +59,7 @@
                         Disponível
                         <select name="available" id="available" class="form-select ps-2">
                             <option value="1">Sim</option>
-                            <option value="2">Não</option>
+                            <option value="0">Não</option>
                         </select>
                     </label>
                 </div>

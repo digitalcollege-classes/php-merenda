@@ -24,33 +24,51 @@ class ProductController extends AbstractController implements ControllerInterfac
     public function add(): void
     {
         if (empty($_POST)) {
-            $this->render('product/add');
+            $categories = $this->entityManager
+                               ->getRepository(Category::class)
+                               ->findAll();
+
+            $this->render('product/add', [
+                'categories' => $categories,
+            ]);
+
             return;
         }
+
+        $category = $this->entityManager
+                        ->getRepository(Category::class)
+                        ->find((int) $_POST['category']);
+
+        $file = $_FILES['image']['tmp_name'];
+        $extension = explode('/', mime_content_type($file))[1];
+
+        //if $extension === 'jpeg','png','gif'
+
+        $path = strtolower("images/product/{$category->getName()}");
+        $filename = str_replace(
+            ' ', 
+            '_', 
+            strtolower($_POST['name'].'.'.$extension)
+        );
+
+        if (false === is_dir($path)) {
+            mkdir($path, recursive: true);
+        }
+
+        move_uploaded_file($file, "{$path}/{$filename}");
 
         $product = new Product();
         $product->setName($_POST['name']);
         $product->setQuantity((int) $_POST['quantity']);
         $product->setPrice((float) $_POST['price']);
         $product->setAvailable((bool) $_POST['available']);
-        $product->setImages(['/images/foto.jpg']);
+        $product->setImages(["/{$path}/{$filename}"]);
         $product->setCreatedAt(new \DateTime());
         $product->setUpdatedAt(new \DateTime());
-        
-        $category = $this->entityManager
-                         ->getRepository(Category::class)
-                         ->find(2);
-
         $product->setCategory($category);
 
         $this->entityManager->persist($product);
         $this->entityManager->flush();
-
-        $file = $_FILES['image']['tmp_name'];
-
-        $mime = mime_content_type($file);
-
-        move_uploaded_file($file, 'images/foto.jpg');
 
         header('location: /produtos/listar');
     }
