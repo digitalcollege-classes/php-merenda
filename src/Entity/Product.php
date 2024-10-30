@@ -18,7 +18,7 @@ class Product
     #[ORM\Column]
     private string $name;
     
-    #[ORM\ManyToOne(targetEntity: Category::class)]
+    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'products')]
     #[ORM\JoinColumn(name: 'category_id', referencedColumnName: 'id')]
     private Category $category;
     

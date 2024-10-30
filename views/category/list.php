@@ -54,6 +54,7 @@
                         <th>#ID</th>
                         <th>Nome</th>
                         <th>Descrição</th>
+                        <th>Produtos</th>
                         <th>Imagem</th>
                         <th>Ações</th>
                     </tr>
@@ -64,11 +65,20 @@
                             $id = $cat->getId();
                             $image = $cat->getImage();
 
+                            $products = count($cat->getProducts());
+
+                            // $p = '';
+
+                            // foreach ($cat->getProducts() as $prod) {
+                            //   $p .= $prod->getName(). ', ';
+                            // }
+
                             echo "
                             <tr>
                                 <td>{$id}</td>
                                 <td>{$cat->getName()}</td>
                                 <td>{$cat->getDescription()}</td>
+                                <td>{$products}</td>
                                 <td> <img onclick='openModal(`{$image}`)' data-bs-toggle='modal' data-bs-target='#modalImage' src='{$image}' width='50px'> </td>
                                 <td>
                                     <a class='btn btn-outline-danger btn-sm' href='/categorias/editar'>Editar</a>

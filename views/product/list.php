@@ -15,6 +15,7 @@
                     <tr>
                         <th>#ID</th>
                         <th>Nome</th>
+                        <th>Categoria</th>
                         <th>Quantidade</th>
                         <th>Preço</th>
                         <th>Imagem</th>
@@ -34,6 +35,7 @@
                             <tr>
                                 <td>{$id}</td>
                                 <td>{$prod->getName()}</td>
+                                <td>{$prod->getCategory()->getName()}</td>
                                 <td>{$prod->getQuantity()}</td>
                                 <td>{$prod->getPrice()}</td>
                                 <td><img onclick='openModal(`{$image}`)' data-bs-toggle='modal' data-bs-target='#modalImage' src='{$image}' width='50px'></td>

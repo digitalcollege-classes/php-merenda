@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Collection;
 
 #[ORM\Entity]
 class Category
@@ -18,10 +19,18 @@ class Category
     #[ORM\Column]
     private string $image;
 
+    #[ORM\OneToMany(targetEntity: Product::class, mappedBy: 'category')]
+    private iterable $products;
+
     public function __construct(
         #[ORM\Column(length: 30)]
         private string $name
     ) {}
+
+    public function getProducts(): iterable
+    {
+        return $this->products;
+    }
 
     public function getId(): int
     {
