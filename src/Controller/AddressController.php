@@ -22,7 +22,35 @@ class AddressController extends AbstractController implements ControllerInterfac
 
     public function add(): void
     {
-        $this->render('address/add');
+        if (empty($_POST)) {
+            $address = $this->entityManager
+                               ->getRepository(Address::class)
+                               ->findAll();
+
+            $this->render('address/add', [
+                'address' => $address,
+            ]);
+
+            return;
+        }
+
+
+
+        $address = new Address();
+        $address->setStreet($_POST['street']);
+        $address->setNumber($_POST['number']);
+        $address->setDistrict($_POST['district']);
+        $address->setCity($_POST['city']);
+        $address->setState($_POST['state']);
+        $address->setZipcode($_POST['zipcode']);
+        $address->setCreatedAt(new \DateTime());
+        $address->setUpdatedAt(new \DateTime());
+       
+
+        $this->entityManager->persist($address);
+        $this->entityManager->flush();
+
+        header('location: /enderecos/adicionar');
     }
 
     public function list(): void
