@@ -39,6 +39,11 @@ return [
     '/usuarios/editar' => [UserController::class, 'edit'],
     '/usuarios/remover' => [UserController::class, 'remove'],
 
+    '/dashboard/admin' => [AuthController::class, 'adminDashboard'],
+    '/dashboard/vendor' => [AuthController::class, 'vendorDashboard'],
+    '/dashboard/customer' => [AuthController::class, 'customerDashboard'],
+
+
     '/login' => [AuthController::class, 'login'],
     '/logout' => [AuthController::class, 'logout'],
 ];

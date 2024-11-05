@@ -12,7 +12,6 @@ ValidationService::renderErrors();
             <div class="d-flex justify-content-between bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                 <h6 class="text-white text-capitalize ps-3 mt-1">Novo Usuário</h6>
 
-
                 <a href="/usuarios/listar" class="btn btn-light mb-1 me-4">
                     Listar
                 </a>
@@ -22,7 +21,6 @@ ValidationService::renderErrors();
             <form method="post" action="">
                 <div class="input-group input-group-outline mb-3">
                     <label class="w-30" for="name">
-
                         Nome do Usuário
                         <input type="text" name="name" id="name" class="form-control">
                     </label>
@@ -39,6 +37,17 @@ ValidationService::renderErrors();
                     <label class="w-30" for="password">
                         Senha
                         <input type="password" name="password" id="password" class="form-control">
+                    </label>
+                </div>
+
+                <div class="input-group input-group-outline mb-3">
+                    <label class="w-30" for="type">
+                        Tipo de Usuário
+                        <select name="type" id="type" class="form-control">
+                            <option value="admin">Administrador</option>
+                            <option value="customer">Cliente</option>
+                            <option value="vendor">Lojista</option>
+                        </select>
                     </label>
                 </div>
 
