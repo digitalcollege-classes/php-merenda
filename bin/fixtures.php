@@ -48,6 +48,7 @@ for ($i = 1; $i <= 10; $i++) {
     $prod->setName('Nome do produto teste ' . $i);
     $prod->setQuantity('1');
     $prod->setPrice(1);
+    $prod->setCategory($cat);
     $prod->setImages(['https://dcdn.mitiendanube.com/stores/002/905/426/products/69-cachaca-51-luxo-bruta-965ml-ca6f4e0825105be38816970366224183-640-0.webp']);
     $prod->setAvailable('Sim');
     $prod->setCreatedAt(new \DateTime());
