@@ -20,8 +20,7 @@
                         <th>Preço</th>
                         <th>Imagem</th>
                         <th>Disponível</th>
-                        <th>Criado</th>
-                        <th>Atualizado</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,9 +39,10 @@
                                 <td>{$prod->getPrice()}</td>
                                 <td><img onclick='openModal(`{$image}`)' data-bs-toggle='modal' data-bs-target='#modalImage' src='{$image}' width='50px'></td>
                                 <td> {$prod->isAvailable()}</td>
-                                <td> {$prod->getCreatedAt()->format('d/m/Y')}</td>
-                                <td> {$prod->getUpdatedAt()->format('d/m/Y')}</td>
-                            
+                                <td>
+                                    <a class='btn btn-outline-warning' href='/produtos/editar?id={$id}'><i class='material-icons'>edit</i> Editar</a>
+                                    <button class='btn btn-outline-danger' onclick='confirmRemove({$id})'><i class='material-icons'>delete</i> Remover</button>
+                                </td>
                             </tr>
                             ";
                         }
