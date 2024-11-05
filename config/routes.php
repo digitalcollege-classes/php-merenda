@@ -26,6 +26,7 @@ return [
     '/clientes/remover' => [CustomerController::class, 'remove'],
 
     '/enderecos/listar' => [AddressController::class, 'list'],
+    '/enderecos/adicionar' => [AddressController::class, 'add'],
 
     '/pedidos/listar' => [OrderController::class, 'list'],
     '/pedidos/editar' => [OrderController::class, 'edit'],

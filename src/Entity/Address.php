@@ -106,4 +106,22 @@ class Address
     {
         $this->state = $state;
     }
+    public function getCreatedAt(): DateTime
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(DateTime $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+    public function getUpdatedAt(): DateTime
+    {
+        return $this->updateAt;
+    }
+
+    public function setUpdatedAt(DateTime $updatedAt): void
+    {
+        $this->updateAt = $updatedAt;
+    }
 }
