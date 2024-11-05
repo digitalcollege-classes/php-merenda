@@ -17,7 +17,7 @@
                 <div class="input-group input-group-outline mb-2">
                     <label class="w-100" for="password">
                         Senha
-                        <input type="text" name="password" id="password" class="form-control">
+                        <input type="password" name="password" id="password" class="form-control">
                     </label>
                 </div>
 
