@@ -10,6 +10,7 @@ use App\Controller\ProductController;
 use App\Controller\UserController;
 use App\Controller\AuthController;
 use App\Controller\DashboardController;
+use App\Controller\Client\MenuController;
 
 return [
     '/' => [DashboardController::class, 'list'],
@@ -38,6 +39,12 @@ return [
     '/usuarios/adicionar' => [UserController::class, 'add'],
     '/usuarios/editar' => [UserController::class, 'edit'],
     '/usuarios/remover' => [UserController::class, 'remove'],
+
+    // -- ROTAS DO USUARIO FINAL (QUE COMPRA) --
+    '/cardapio' => [MenuController::class, 'index'],
+
+    // -- FIM DAS ROTAS DO USUARIO FINAL --
+
 
     '/login' => [AuthController::class, 'login'],
     '/logout' => [AuthController::class, 'logout'],
