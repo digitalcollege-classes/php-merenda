@@ -30,7 +30,7 @@
                         Preço total: <strong id="total-price">R$ 0</strong>
                     </p>
 
-                    <form action="">
+                    <form action="" onsubmit="confirmOrder(event)">
                         <span>Retirada ou Entrega?</span>
                         <label for="retirada">Retirada?</label>
                         <input type="radio" id="retirada" name="type" value="retirada">
@@ -45,6 +45,7 @@
             </div>
         </div>
     </div>
+
 
     <section class="row">
         <?php
@@ -78,6 +79,29 @@
 </div>
 
 <script>
+    function confirmOrder(event) {
+        event.preventDefault();
+
+        let retirada = document.getElementById('retirada').checked;
+        let tipo = retirada === true ? 'Retirada' : 'Delivery';
+        let items = JSON.parse(
+            localStorage.getItem('items') || '[]'
+        );
+
+        fetch('http://localhost:8080/api/pedidos/novo', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                items: items,
+                type: tipo
+            })
+        })
+            .then(res => res.json())
+            .then(dados => {
+                console.log(dados);
+            });
+    }
+
     function loadDataItems() {
         let cart = JSON.parse(
             localStorage.getItem('items') || '[]'
