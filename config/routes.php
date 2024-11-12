@@ -11,6 +11,7 @@ use App\Controller\UserController;
 use App\Controller\AuthController;
 use App\Controller\DashboardController;
 use App\Controller\Client\MenuController;
+use App\Controller\Client\OrderClientController;
 
 return [
     '/' => [DashboardController::class, 'list'],
@@ -43,6 +44,8 @@ return [
 
     // -- ROTAS DO USUARIO FINAL (QUE COMPRA) --
     '/cardapio' => [MenuController::class, 'index'],
+
+    '/api/pedidos/novo' => [OrderClientController::class, 'create'],
 
     // -- FIM DAS ROTAS DO USUARIO FINAL --
 
