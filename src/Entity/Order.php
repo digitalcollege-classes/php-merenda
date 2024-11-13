@@ -16,8 +16,8 @@ class Order
     #[ORM\GeneratedValue]
     private int $id;
 
-    #[ORM\Column]
-    private string $type;
+    #[ORM\Column(type: 'integer')]
+    private int $type;
     
     #[ORM\Column]
     private array $items;
@@ -39,12 +39,12 @@ class Order
         return $this->id;
     }
 
-    public function getType(): string
+    public function getType(): int
     {
         return $this->type;
     }
 
-    public function setType(string $type): void
+    public function setType(int $type): void
     {
         $this->type = $type;
     }

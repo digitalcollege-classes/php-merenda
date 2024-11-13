@@ -31,10 +31,18 @@
                             $updateAt = $ord->getUpdateAt();
                             $items = count($ord->getItems());
 
+                            $type = \App\Enum\OrderTypeEnum::from($ord->getType())->name;
+
+                            $type = match($type) {
+                                'DELIVERY' => '<span class="badge bg-primary">Delivery</span>',
+                                'RETIRADA' => '<span class="badge bg-success">Retirada</span>',
+                                default => "<span class='badge bg-secondary'>{$type}</span>",
+                            };
+
                             echo "
                                 <tr>
                                     <td>{$id}</td>
-                                    <td> {$ord->getType()}</td>
+                                    <td>{$type}</td>
                                     <td>{$items}</td>
                                     <td>{$ord->getCustomer()}</td>  
                                     <td>{$ord->getStatus()}</td>

@@ -6,6 +6,8 @@ session_start();
 
 $routes = include '../config/routes.php';
 
+date_default_timezone_set('America/Fortaleza');
+
 use App\Controller\AuthController;
 use App\Controller\PageErrorController;
 

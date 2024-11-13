@@ -7,6 +7,7 @@ namespace App\Controller\Client;
 use App\Entity\Order;
 use App\Connection\Connection;
 use Doctrine\ORM\EntityManager;
+use App\Enum\OrderTypeEnum;
 
 class OrderClientController extends AbstractClientController
 {
@@ -24,9 +25,11 @@ class OrderClientController extends AbstractClientController
             file_get_contents('php://input')
         );
 
+        $type = OrderTypeEnum::fromName($dados->type);
+
         //salvar os dados no banco
         $order = new Order();
-        $order->setType($dados->type);
+        $order->setType($type->value);
         $order->setItems($dados->items);
         $order->setCreatedAt(new \DateTime());
         $order->setUpdateAt(new \DateTime());
