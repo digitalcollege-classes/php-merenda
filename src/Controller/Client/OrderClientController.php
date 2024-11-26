@@ -15,7 +15,27 @@ class OrderClientController extends AbstractClientController
 
     public function __construct() 
     {
+        //retornar uma response pro http client
+        header('Content-Type: application/json');
+
         $this->entityManager = Connection::getEntityManager();
+    }
+
+    public function list(): void
+    {
+        $repository = $this->entityManager->getRepository(Order::class);
+        $customer = $_SESSION['user_logged']['name'];
+
+        $data = $repository->findBy([
+            'customer' => $customer,
+        ]);
+
+        $data = array_map(
+            fn ($item) => $item->getPublicInfo(), 
+            $data
+        );
+
+        echo json_encode($data);
     }
 
     public function create(): void
@@ -36,11 +56,17 @@ class OrderClientController extends AbstractClientController
         $order->setStatus('Aguardando Pedido');
         $order->setCustomer($_SESSION['user_logged']['name']);
 
+        $total = 0;
+        foreach ($dados->items as $item) {
+            $total += (float) $item->price;
+        }
+
+        
+
+        $order->setPrice($total);
+
         $this->entityManager->persist($order);
         $this->entityManager->flush();
-
-        //retornar uma response pro http client
-        header('Content-Type: application/json');
 
         echo json_encode([
             'id' => $order->getId(),
