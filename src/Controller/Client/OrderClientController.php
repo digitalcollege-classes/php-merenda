@@ -8,6 +8,9 @@ use App\Entity\Order;
 use App\Connection\Connection;
 use Doctrine\ORM\EntityManager;
 use App\Enum\OrderTypeEnum;
+use App\Service\Discount\PercentageDiscount;
+use App\Service\Discount\FixedDiscount;
+use App\Service\Discount\DiscountCalculator;
 
 class OrderClientController extends AbstractClientController
 {
@@ -61,7 +64,12 @@ class OrderClientController extends AbstractClientController
             $total += (float) $item->price;
         }
 
-        
+        //aplicando desconto
+        $total = DiscountCalculator::apply(
+            new FixedDiscount(20),
+            $total
+        );
+        //-------------------
 
         $order->setPrice($total);
 
