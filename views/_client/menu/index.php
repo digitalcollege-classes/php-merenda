@@ -7,6 +7,9 @@
             Carrinho
             <span class="badge bg-secondary" id="quantity-items">0</span>
         </button>
+        <a href="/cardapio/pedidos" class="btn btn-outline-info">
+            Meus Pedidos
+        </a>
     </div>
 
     <div class="modal fade" id="modalCart">

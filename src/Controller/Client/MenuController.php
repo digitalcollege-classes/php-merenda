@@ -21,4 +21,11 @@ class MenuController extends AbstractClientController
             'products' => $products,
         ]);
     }
+
+    public function orders(): void
+    {
+        $this->render('_client/menu/orders', [
+            'customer' => $_SESSION['user_logged']['name'],
+        ]);
+    }
 }

@@ -44,8 +44,11 @@ return [
 
     // -- ROTAS DO USUARIO FINAL (QUE COMPRA) --
     '/cardapio' => [MenuController::class, 'index'],
+    '/cardapio/pedidos' => [MenuController::class, 'orders'],
 
     '/api/pedidos/novo' => [OrderClientController::class, 'create'],
+    '/api/pedidos/list' => [OrderClientController::class, 'list'],
+
 
     // -- FIM DAS ROTAS DO USUARIO FINAL --
 
