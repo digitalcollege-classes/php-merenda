@@ -29,8 +29,10 @@ class UserController extends AbstractController implements ControllerInterface
             ValidationService::stop();
             return;
         }
+        
 
-        $object = new User();
+
+        $object = new User(); ## IMPLEMENTAR A FABRICA AQUI!!
         $object->setName($_POST['name']);
         $object->setEmail($_POST['email']);
         $object->setPassword(
