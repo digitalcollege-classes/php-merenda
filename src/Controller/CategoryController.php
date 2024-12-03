@@ -10,6 +10,9 @@ use App\Service\ValidationService;
 use Doctrine\ORM\EntityManager;
 use Doctrine\Persistence\ObjectRepository;
 
+use App\Model\Form\FormDirector;
+use App\Model\Form\Builder\FormBuilder;
+
 class CategoryController extends AbstractController implements ControllerInterface
 {
     private EntityManager $entityManager;
@@ -23,13 +26,19 @@ class CategoryController extends AbstractController implements ControllerInterfa
 
     public function add(): void
     {
-        if (true === ValidationService::foundErrors()) {
-            $this->render('category/add');
+        if (ValidationService::foundErrors()) {
+            $builder = new FormBuilder();
+            $director = new FormDirector($builder);
+
+            $form = $director->buildCategoryForm($_POST);
+
+            $this->render('category/add', ['form' => $form]);
             ValidationService::stop();
             return;
         }
 
-        $object = new Category($_POST['name']);
+        $object = new Category();
+        $object->setName($_POST['name']);
         $object->setDescription($_POST['description']);
         $object->setImage($_POST['image']);
 
@@ -38,7 +47,6 @@ class CategoryController extends AbstractController implements ControllerInterfa
 
         header('location: /categorias/listar');
     }
-
     public function list(): void
     {
         $this->render('category/list', [

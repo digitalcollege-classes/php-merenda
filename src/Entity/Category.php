@@ -13,6 +13,9 @@ class Category
     #[ORM\Id] #[ORM\Column(type: 'integer')] #[ORM\GeneratedValue]
     private int $id;
 
+    #[ORM\Column(length: 30)]
+    private string $name;
+
     #[ORM\Column]
     private string $description;
 
@@ -22,10 +25,7 @@ class Category
     #[ORM\OneToMany(targetEntity: Product::class, mappedBy: 'category')]
     private iterable $products;
 
-    public function __construct(
-        #[ORM\Column(length: 30)]
-        private string $name
-    ) {}
+    public function __construct() {}
 
     public function getProducts(): iterable
     {
